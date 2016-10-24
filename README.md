@@ -49,6 +49,7 @@ DocumentRoot "path/to/basic/web"
 
 server
 {
+{
     charset utf-8;
     client_max_body_size 128M;
 
@@ -80,4 +81,5 @@ server
     location ~* /\. {
         deny all;
     }
+}
 }
