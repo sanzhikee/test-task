@@ -6,6 +6,7 @@ REQUIREMENTS
 Я локально установил php7, composer, mysql5.5, apache
 
 INSTALLATION
+-------------
 
 Установка
 
@@ -33,31 +34,25 @@ return [
 Server
 -------------
 
-Рекомендуемая Apache конфигурация:
+#Рекомендуемая Apache конфигурация:
 
-# Set document root to be "basic/web"
 DocumentRoot "path/to/basic/web"
 
 <Directory "path/to/basic/web">
-    # use mod_rewrite for pretty URL support
     RewriteEngine on
-    # If a directory or a file exists, use the request directly
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    # Otherwise forward the request to index.php
     RewriteRule . index.php
-
-    # ...other settings...
 </Directory>
 
-Рекомендуемая Nginx конфигурация:
+#Рекомендуемая Nginx конфигурация:
 
-server {
+server
+{
     charset utf-8;
     client_max_body_size 128M;
 
     listen 80; ## listen for ipv4
-    #listen [::]:80 default_server ipv6only=on; ## listen for ipv6
 
     server_name mysite.local;
     root        /path/to/basic/web;
@@ -67,17 +62,9 @@ server {
     error_log   /path/to/basic/log/error.log;
 
     location / {
-        # Redirect everything that isn't a real file to index.php
         try_files $uri $uri/ /index.php$is_args$args;
     }
 
-    # uncomment to avoid processing of calls to non-existing static files by Yii
-    #location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar)$ {
-    #    try_files $uri =404;
-    #}
-    #error_page 404 /404.html;
-
-    # deny accessing php files for the /assets directory
     location ~ ^/assets/.*\.php$ {
         deny all;
     }
