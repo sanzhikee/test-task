@@ -36,6 +36,7 @@ Server
 
 #Рекомендуемая Apache конфигурация:
 
+```php
 DocumentRoot "path/to/basic/web"
 
 <Directory "path/to/basic/web">
@@ -44,11 +45,12 @@ DocumentRoot "path/to/basic/web"
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule . index.php
 </Directory>
+```
 
 #Рекомендуемая Nginx конфигурация:
 
+```php
 server
-{
 {
     charset utf-8;
     client_max_body_size 128M;
@@ -82,4 +84,4 @@ server
         deny all;
     }
 }
-}
+```
