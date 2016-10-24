@@ -1,20 +1,18 @@
 Yii 2 Basic Project Template
 
-REQUIREMENTS
+Зависимости
 ------------
 
 Я локально установил php7, composer, mysql5.5, apache
 
-INSTALLATION
--------------
-
 Установка
+-------------
 
 Разворачиваем проект из гита локально
 Далее запускаем команду composer install
 После в корне проекта запускаем php yii migrate
 
-CONFIGURATION
+Настройка
 -------------
 
 ### База данных
@@ -31,7 +29,7 @@ return [
 ];
 ```
 
-Server
+Север
 -------------
 
 #Рекомендуемая Apache конфигурация:
